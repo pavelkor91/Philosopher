@@ -1,4 +1,4 @@
-package Deadlock;
+package DeadlockSituation;
 
 public class Fork {
     private boolean used = false;

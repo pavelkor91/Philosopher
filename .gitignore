@@ -4,4 +4,7 @@
 #iml
 *.iml
 
+#txt
+*.txt
+
 out/

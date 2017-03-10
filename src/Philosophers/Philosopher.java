@@ -1,15 +1,15 @@
 package Philosophers;
 
 class Philosopher implements Runnable {
+
     private Fork leftFork;
+
     private Fork rightFork;
 
-    private String name;
-    private int state;
+    private int id;
 
-    public Philosopher(String name, Fork leftFork, Fork rightFork) {
-        this.state = 1;
-        this.name = name;
+    public Philosopher(int id, Fork leftFork, Fork rightFork) {
+        this.id = id;
         this.leftFork = leftFork;
         this.rightFork = rightFork;
     }
@@ -19,20 +19,21 @@ class Philosopher implements Runnable {
             leftFork.take();
             rightFork.take();
 
-            Logger.message(name + " : Eating");
+            Log.msg(id + " : now eating");
 
-            leftFork.laid();
-            rightFork.laid();
+            leftFork.putFork();
+            rightFork.putFork();
         }
-        Logger.delay(1000);
+        Log.delay(1000);
+        think();
+
     }
 
 
 
     public void think() throws InterruptedException{
-        this.state = 1;
-        Logger.message(name + " : Thinking");
-        Logger.delay(1000);
+        Log.msg(id + " : now thinking");
+        Log.delay(1000);
 
     }
 
@@ -41,7 +42,6 @@ class Philosopher implements Runnable {
         while (true) {
             try {
                 eat();
-                think();
 
             } catch (InterruptedException e) {
                 e.printStackTrace();

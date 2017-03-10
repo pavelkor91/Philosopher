@@ -1,20 +1,21 @@
 package Philosophers;
 
-class Fork{
+class Fork {
 
     public boolean used;
-    private String name;
+    private int id;
 
-    public Fork(String _name){
-        this.name = _name;
+    public Fork(int id) {
+        this.id = id;
     }
 
     public synchronized void take() {
-        Logger.message("Used : " + name);
+        Log.msg("take " + id+" from table");
         this.used = true;
     }
-    public synchronized void laid() {
-        Logger.message("Laid : " + name);
-        this.used = false ;
+
+    public synchronized void putFork() {
+        Log.msg("put fork" + id + " on table");
+        this.used = false;
     }
 }

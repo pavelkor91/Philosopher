@@ -1,8 +1,8 @@
 package Philosophers;
 
-class Logger {
+class Log {
 
-    public static void message(String msg) {
+    public static void msg(String msg) {
         System.out.println(msg);
     }
 
@@ -10,7 +10,7 @@ class Logger {
         try {
             Thread.sleep(ms);
         } catch (InterruptedException ex) {
-            System.err.println(ex);
+           ex.printStackTrace();
         }
     }
 }

@@ -1,4 +1,4 @@
-package Deadlock;
+package DeadlockSituation;
 
 import java.util.Random;
 
@@ -26,7 +26,7 @@ public class Philosopher implements Runnable {
                 eat();
             }
         } catch (InterruptedException e) {
-            System.err.println("Deadlock on "+ name +"!");
+            System.err.println("DeadlockSituation on "+ name +"!");
         }
     }
 

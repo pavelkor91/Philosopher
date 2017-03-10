@@ -5,26 +5,27 @@ package Philosophers;
  */
 public class TestDinner {
 
-    private static final int NUMBER_OF_PHILOSOPHERS = 5;
+    private static final int NUM_PHILOSOPHS = 5;
 
     public static void main(String[] args) {
 
 
-        Fork[] forks = new Fork[NUMBER_OF_PHILOSOPHERS];
+        Fork[] forks = new Fork[NUM_PHILOSOPHS];
 
         for (int i = 0; i < forks.length; i++) {
-            forks[i] = new Fork("Fork: " + i);
+            forks[i] = new Fork(i);
         }
-        Philosopher[] philosophers = new Philosopher[NUMBER_OF_PHILOSOPHERS];
 
-        philosophers[0] = new Philosopher("Aristotel: 0 - ", forks[0], forks[1]);
-        philosophers[1] = new Philosopher("Plato: 1 - ", forks[1], forks[2]);
-        philosophers[2] = new Philosopher("Dekart: 2 - ", forks[2], forks[3]);
-        philosophers[3] = new Philosopher("Nietzsche: 3 - ", forks[3], forks[4]);
-        philosophers[4] = new Philosopher("Marx: 4 - ", forks[0], forks[4]);
+        Philosopher[] philosophers = new Philosopher[NUM_PHILOSOPHS];
+
+        philosophers[0] = new Philosopher(1, forks[0], forks[1]);
+        philosophers[1] = new Philosopher(2, forks[1], forks[2]);
+        philosophers[2] = new Philosopher(3, forks[2], forks[3]);
+        philosophers[3] = new Philosopher(4, forks[3], forks[4]);
+        philosophers[4] = new Philosopher(5, forks[0], forks[4]);
 
         for (int i = 0; i < philosophers.length; i++) {
-            Logger.message("Thred " + i);
+            Log.msg("Threаd " + i + " Started");
             Thread t = new Thread(philosophers[i]);
             t.start();
         }
